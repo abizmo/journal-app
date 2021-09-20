@@ -1,11 +1,9 @@
 import React from 'react';
 
-const JournalApp = () => {
-  return (
-    <div>
-      JournalApp
-    </div>
-  );
-};
+import JournalRouter from './routers/JournalRouter';
+
+const JournalApp = () => (
+  <JournalRouter />
+);
 
 export default JournalApp;
