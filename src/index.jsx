@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import JournalApp from './JournalApp';
+
+import './styles/index.scss';
+
 ReactDOM.render(
-  <h1>Journal App</h1>,
+  <JournalApp />,
   document.getElementById('root')
 );
