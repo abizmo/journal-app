@@ -3,6 +3,7 @@
   border-radius: 2px;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
   color: $white;
+  cursor: pointer;
   font-weight: 700;
   height: 42px;
   letter-spacing: 0.2px;
@@ -25,6 +26,13 @@
   &:hover {
     box-shadow: 0 0 6px $primary;
   }
+}
+
+.btn-outline-white {
+  background-color: transparent;
+  border: 2px solid $white;
+  border-radius: 2px;
+  box-shadow: none;
 }
 
 .btn-block {
