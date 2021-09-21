@@ -1,0 +1,14 @@
+.notes__container {
+  background-color: indianred;
+  display: flex;
+  flex-direction: column;
+}
+
+.notes__bar-container {
+  align-items: center;
+  background-color: $primary;
+  color: $white;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+}

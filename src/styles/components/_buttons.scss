@@ -28,11 +28,28 @@
   }
 }
 
+.btn-white {
+  background-color: $white;
+  color: $primary;
+
+  &:disabled {
+    background-color: darken($color: $white, $amount: 40);
+  }
+
+  &:hover {
+    box-shadow: 0 0 6px $white;
+  }
+}
+
 .btn-outline-white {
-  background-color: transparent;
+  background-color: inherit;
   border: 2px solid $white;
   border-radius: 2px;
   box-shadow: none;
+
+  &:hover {
+    box-shadow: 0 0 6px $white;
+  }
 }
 
 .btn-block {
