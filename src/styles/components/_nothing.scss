@@ -1,0 +1,15 @@
+.nothing__main-content {
+  align-items: center;
+  background-color: $dark-gray;
+  color: $primary;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  
+  p {
+    font-size: x-large;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}
