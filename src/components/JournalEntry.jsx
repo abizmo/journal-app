@@ -1,7 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 const JournalEntry = () => {
   const imageUrl = 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHBlb3BsZXxlbnwwfDJ8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60';
+
   return (
     <div className="journal__entry-container">
       <div
@@ -21,7 +22,7 @@ const JournalEntry = () => {
         <span className="journal__entry-number">28</span>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default JournalEntry
+export default JournalEntry;
