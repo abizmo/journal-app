@@ -15,24 +15,24 @@ import PublicRoute from './PublicRoute';
 
 const JournalRouter = () => {
   const dispatch = useDispatch();
-  const [checking, setChecking] = useState(true)
-  const [logged, setLogged] = useState(false)
+  const [checking, setChecking] = useState(true);
+  const [logged, setLogged] = useState(false);
 
   useEffect(() => {
     getCurrentUser((user) => {
       if (user) {
-        const { displayName: name, uid: userId } = user
-        dispatch(login({ name, userId }))
-        setLogged(true)
+        const { displayName: name, uid: userId } = user;
+        dispatch(login({ name, userId }));
+        setLogged(true);
       } else {
         setLogged(false);
       }
       setChecking(false);
     });
-  }, [ dispatch ])
+  }, [ dispatch ]);
 
   if (checking) {
-    return <h1>Loading...</h1>
+    return <h1>Loading...</h1>;
   }
 
   return (
