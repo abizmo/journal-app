@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import {
   loginWithGoogleProvider,
   signInWithEmail,
@@ -25,26 +26,26 @@ export const loginWithEmail = ({ email, password }) => (dispatch) => {
       dispatch(stopAction());
       dispatch(login(user));
     })
-    .catch((err) => {
+    .catch(({ message }) => {
       dispatch(stopAction());
-      console.log(err.message);
+      Swal.fire('Error', message, 'error');
     });
 };
 
 export const loginWithGoogle = () => (dispatch) => {
   loginWithGoogleProvider()
     .then((user) => dispatch(login(user)))
-    .catch((err) => console.log(err));
+    .catch(({ message }) => Swal.fire('Error', message, 'error'));
 };
 
 export const signUp = (newUser) => (dispatch) => {
   signUpWithEmailAndPassword(newUser)
     .then((user) => dispatch(login(user)))
-    .catch((err) => console.log(err.message))
+    .catch(({ message }) => Swal.fire('Error', message, 'error'));
 };
 
 export const signOut = () => (dispatch) => {
   signOutInFirebase()
     .then(() => dispatch(logout()))
-    .catch((err) => console.log(err.message))
+    .catch(({ message }) => Swal.fire('Error', message, 'error'));
 };
