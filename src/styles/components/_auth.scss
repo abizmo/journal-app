@@ -1,11 +1,13 @@
 .auth__alert-error {
-background-color: indianred;
-border-radius: 4px;
-color: $white;
+  background-color: #cf10201a;
+  border: 2px solid #cf1020;
+  border-radius: 4px;
+  color: #cf1020;
   display: flex;
   justify-content: center;
   margin-bottom: 16px;
   padding: 8px;
+  text-align: center;
 }
 
 .auth__box-container {
