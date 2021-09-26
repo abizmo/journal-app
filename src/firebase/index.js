@@ -17,7 +17,7 @@ const firebaseConfig = {
   projectId: "***REMOVED***",
   storageBucket: "***REMOVED***.appspot.com",
   messagingSenderId: "***REMOVED***",
-  appId: "1:***REMOVED***:web:787bcc30a701bcb2c326ed"
+  appId: "1:***REMOVED***:web:787bcc30a701bcb2c326ed",
 };
 
 // Initialize Firebase
@@ -39,16 +39,16 @@ export const loginWithGoogleProvider = () => signInWithPopup(auth, provider)
 export const signInWithEmail = ({ email, password }) => signInWithEmailAndPassword(auth, email, password)
   .then(({ user }) => {
     return { name: user.displayName, userId: user.uid };
-  })
+  });
 
 export const signUpWithEmailAndPassword = ({ email, name, password }) => createUserWithEmailAndPassword(auth, email, password)
   .then(({ user }) => {
     const { uid: userId } = user;
     return updateProfile(user, { displayName: name })
       .then(() => {
-        return { name, userId}
-      })
-  })
+        return { name, userId};
+      });
+  });
 
   export const getCurrentUser = (cb) => onAuthStateChanged(auth, cb);
   
