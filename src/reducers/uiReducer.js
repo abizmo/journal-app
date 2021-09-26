@@ -8,20 +8,20 @@ const initialState = {
 const uiReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case CLEAR_ERROR:
-      return { ...state, error: null }
+      return { ...state, error: null };
 
     case SET_ERROR:
-      return { ...state, error: payload }
+      return { ...state, error: payload };
 
     case START_ACTION:
-      return { ...state, loading: true }
+      return { ...state, loading: true };
 
     case STOP_ACTION:
-      return { ...state, loading: false }
+      return { ...state, loading: false };
 
     default:
-      return state
+      return state;
     }
-}
+};
 
 export default uiReducer;
