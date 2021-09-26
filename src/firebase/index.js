@@ -2,6 +2,8 @@ import { initializeApp } from "firebase/app";
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  GoogleAuthProvider,
+  onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
@@ -47,3 +49,6 @@ export const signUpWithEmailAndPassword = ({ email, name, password }) => createU
         return { name, userId}
       })
   })
+
+  export const getCurrentUser = (cb) => onAuthStateChanged(auth, cb);
+  
