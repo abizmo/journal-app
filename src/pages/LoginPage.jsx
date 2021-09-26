@@ -10,7 +10,7 @@ import useForm from '../hooks/useForm';
 const LoginPage = () => {
   const dispatch = useDispatch();
   
-  const { error, loading } = useSelector(({ ui }) => ui)
+  const { error, loading } = useSelector(({ ui }) => ui);
   const [{ email, password }, handleInputChange ] = useForm({
     email: 'goccita@abizmo.dev',
     password: '123456',
@@ -33,11 +33,11 @@ const LoginPage = () => {
     }
     dispatch(clearError());
     return true;
-  }
+  };
 
   const handleGoogleSignIn = () => {
     dispatch(loginWithGoogle());
-  }
+  };
 
   return (
     <>
