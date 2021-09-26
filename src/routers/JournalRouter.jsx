@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import {
   BrowserRouter as Router,
   Redirect,
-  Route,
   Switch
 } from 'react-router-dom';
 
@@ -11,6 +10,8 @@ import AuthRouter from './AuthRouter';
 import JournalPage from '../pages/JournalPage';
 import { getCurrentUser } from '../firebase';
 import { login } from '../actions/authActions';
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
 
 const JournalRouter = () => {
   const dispatch = useDispatch();
@@ -37,12 +38,17 @@ const JournalRouter = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/auth">
-          <AuthRouter />
-        </Route>
-        <Route exact path="/">
-          <JournalPage />
-        </Route>
+        <PublicRoute
+          component={AuthRouter}
+          logged={logged}
+          path="/auth"
+        />
+        <PrivateRoute
+          component={JournalPage}
+          exact
+          logged={logged}
+          path="/"
+        />
         <Redirect to="/auth/login" />
       </Switch>
     </Router>
