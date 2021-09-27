@@ -12,6 +12,7 @@ import { getCurrentUser } from '../firebase';
 import { login } from '../actions/authActions';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
+import { getNotes } from '../actions/notesActions';
 
 const JournalRouter = () => {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ const JournalRouter = () => {
         const { displayName: name, uid: userId } = user;
         dispatch(login({ name, userId }));
         setLogged(true);
+        dispatch(getNotes());
       } else {
         setLogged(false);
       }

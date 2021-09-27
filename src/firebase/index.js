@@ -1,3 +1,4 @@
+//FIXME - Sacar de aqui todas las funciones y llevarlas a api/auth.js
 import { initializeApp } from "firebase/app";
 import {
   createUserWithEmailAndPassword,
@@ -23,8 +24,7 @@ const firebaseConfig = {
 // Initialize Firebase
 initializeApp(firebaseConfig);
 
-// FIXME - db never used
-const db = getFirestore();
+export const db = getFirestore();
 
 // Authentication
 const auth = getAuth();
