@@ -3,6 +3,7 @@ import { createNote, getAllNotes, saveOneNote } from "../api/notes";
 
 export const SET_ACTIVE = 'SET_ACTIVE';
 export const SET_NOTES = 'SET_NOTES';
+export const UPDATE_NOTE = 'UPDATE_NOTE';
 
 export const getNotes = () => (dispatch, getState) => {
   const { userId } = getState().auth;
@@ -51,12 +52,22 @@ export const saveNote = () => (dispatch, getState) => {
   !note.url && delete note.url;
 
   saveOneNote(userId, id, note)
-    .then(() => Swal.fire({
-      icon: 'success',
-      title: 'Your note has been saved',
-      showConfirmButton: false,
-      timer: 1500
-    }))
+    .then(() => {
+      dispatch(refreshNote(id, note));
+      Swal.fire({
+        icon: 'success',
+        title: 'Your note has been saved',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    })
     .catch(({ message }) => Swal.fire('Error', message, 'error'));
 } 
  
+const refreshNote = (id, note) => ({
+  type: UPDATE_NOTE,
+  payload: {
+    id,
+    note,
+  }
+});
