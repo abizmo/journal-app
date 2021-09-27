@@ -1,23 +1,60 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { setActive } from '../actions/notesActions';
+import useForm from '../hooks/useForm';
 import NotesBar from '../styles/components/NotesBar';
 
-const NotesPage = () => (
-  <div className="notes__container">
-    <NotesBar />
-    <div className="notes__new-note">
-      <input
-        className="notes__input"
-        placeholder="An awesome note"
-        type="text" />
-      <textarea
-        className="notes__textarea"
-        placeholder="Once upon a time..." />
-      <img
-        alt="new note"
-        className="notes__image"
-        src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aHVtYW58ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80" />
+const NotesPage = () => {
+  const dispatch = useDispatch();
+  const { active: note } = useSelector(state => state.notes);
+  const [formValues, handleInputChange, reset ] = useForm({ ...note });
+  const { body, title, url } = formValues;
+
+  const activeId = useRef(note.id);
+
+  useEffect(() => {
+    if (note.id !== activeId.current) {
+      reset(note);
+      activeId.current = note.id;
+    }
+  }, [note, reset]);
+
+  useEffect(() => {
+    dispatch(setActive({ ...formValues }))
+  }, [formValues, dispatch]);
+
+  return (
+    <div className="notes__container">
+      <NotesBar />
+      <div className="notes__new-note">
+        <input
+          autoComplete="off"
+          className="notes__input"
+          name="title"
+          onChange={ handleInputChange }
+          placeholder="An awesome note"
+          type="text"
+          value={title}
+        />
+        <textarea
+          className="notes__textarea"
+          name="body"
+          onChange={ handleInputChange }
+          placeholder="Once upon a time..."
+          value={body}
+        />
+        {
+          url && (
+            <img
+              alt="new note"
+              className="notes__image"
+              src={url} />
+          )
+        }
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default NotesPage;
