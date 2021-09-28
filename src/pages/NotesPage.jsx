@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { setActive } from '../actions/notesActions';
+import { removeNote, setActive } from '../actions/notesActions';
 import useForm from '../hooks/useForm';
 import NotesBar from '../styles/components/NotesBar';
 
@@ -23,6 +23,10 @@ const NotesPage = () => {
   useEffect(() => {
     dispatch(setActive({ ...formValues }))
   }, [formValues, dispatch]);
+
+  const handleDelete = () => {
+    dispatch(removeNote());
+  }
 
   return (
     <div className="notes__container">
@@ -53,6 +57,10 @@ const NotesPage = () => {
           )
         }
       </div>
+      <button
+        className="btn btn-danger"
+        onClick={ handleDelete }
+      >Delete</button>
     </div>
   );
 };
