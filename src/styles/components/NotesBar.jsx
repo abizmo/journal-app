@@ -1,6 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { saveNote, uploadImage } from '../../actions/notesActions';
+
+import { saveNote, uploadImage } from '../../actions/notes';
+
 
 const NotesBar = () => {
   const dispatch = useDispatch();

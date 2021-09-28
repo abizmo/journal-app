@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { removeNote, setActive } from '../actions/notesActions';
+
+import { removeNote, setActive } from '../actions/notes';
 import useForm from '../hooks/useForm';
 import NotesBar from '../styles/components/NotesBar';
 

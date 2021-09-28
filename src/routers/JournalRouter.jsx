@@ -11,8 +11,8 @@ import JournalPage from '../pages/JournalPage';
 import { login } from '../actions/authActions';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
-import { getNotes } from '../actions/notesActions';
 import { onCurrentUserChanged } from '../api/auth';
+import { getNotes } from '../actions/notes';
 
 const JournalRouter = () => {
   const dispatch = useDispatch();

@@ -1,11 +1,11 @@
-import Swal from "sweetalert2";
 import {
   signIn,
   signInWithGoogle,
   signUpWithEmailAndPassword,
   signOut as signOutApi
 } from "../api/auth";
-import { clearNotes } from "./notesActions";
+import { error } from "../helpers/alert";
+import { clearNotes } from "./notes";
 import { startAction, stopAction } from "./uiActions";
 
 export const LOGIN = 'LOGIN';
@@ -29,20 +29,20 @@ export const loginWithEmail = ({ email, password }) => (dispatch) => {
     })
     .catch(({ message }) => {
       dispatch(stopAction());
-      Swal.fire('Error', message, 'error');
+      error(message);
     });
 };
 
 export const loginWithGoogle = () => (dispatch) => {
   signInWithGoogle()
     .then((user) => dispatch(login(user)))
-    .catch(({ message }) => Swal.fire('Error', message, 'error'));
+    .catch(({ message }) => error(message));
 };
 
 export const signUp = (newUser) => (dispatch) => {
   signUpWithEmailAndPassword(newUser)
     .then((user) => dispatch(login(user)))
-    .catch(({ message }) => Swal.fire('Error', message, 'error'));
+    .catch(({ message }) => error(message));
 };
 
 export const signOut = () => (dispatch) => {
@@ -51,5 +51,5 @@ export const signOut = () => (dispatch) => {
       dispatch(logout());
       dispatch(clearNotes());
     })
-    .catch(({ message }) => Swal.fire('Error', message, 'error'));
+    .catch(({ message }) => error(message));
 };
