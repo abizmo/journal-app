@@ -1,4 +1,5 @@
 import Swal from "sweetalert2";
+import { uploadOneImage } from "../api/images";
 import { createNote, getAllNotes, saveOneNote } from "../api/notes";
 
 export const SET_ACTIVE = 'SET_ACTIVE';
@@ -71,3 +72,12 @@ const refreshNote = (id, note) => ({
     note,
   }
 });
+
+export const uploadImage = (file) => (dispatch, getState) => {
+  
+  uploadOneImage(file)
+    .then((url) => {
+        console.log('Success', url);
+    })
+    .catch(({ message }) => Swal.fire('Error', message, 'error'));
+}
