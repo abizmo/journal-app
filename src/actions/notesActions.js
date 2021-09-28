@@ -27,10 +27,7 @@ export const newNote = () => (dispatch, getState) => {
 
   createNote(userId, note)
     .then((id) => {
-      dispatch(setActive({
-        ...note,
-        id,
-      }));
+      dispatch(addNote({ ...note, id }))
     })
     .catch(({ message }) => Swal.fire('Error', message, 'error'));
 };

@@ -1,4 +1,4 @@
-import { SET_ACTIVE, SET_NOTES, UPDATE_NOTE } from "../actions/notesActions";
+import { ADD_NOTE, DELETE_NOTE, SET_ACTIVE, SET_NOTES, UPDATE_NOTE } from "../actions/notesActions";
 
 const initialState = {
   notes: [],
