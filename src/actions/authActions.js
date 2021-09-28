@@ -5,6 +5,7 @@ import {
   signOutInFirebase,
   signUpWithEmailAndPassword
 } from "../firebase";
+import { clearNotes } from "./notesActions";
 import { startAction, stopAction } from "./uiActions";
 
 export const LOGIN = 'LOGIN';
@@ -46,6 +47,9 @@ export const signUp = (newUser) => (dispatch) => {
 
 export const signOut = () => (dispatch) => {
   signOutInFirebase()
-    .then(() => dispatch(logout()))
+    .then(() => {
+      dispatch(logout());
+      dispatch(clearNotes());
+    })
     .catch(({ message }) => Swal.fire('Error', message, 'error'));
 };
