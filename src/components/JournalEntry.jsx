@@ -1,7 +1,8 @@
 import React from 'react';
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
-import { setActive } from '../actions/notesActions';
+
+import { setActive } from '../actions/notes';
 
 const JournalEntry = ({ body, date, id, title, url }) => {
   const dispatch = useDispatch();
