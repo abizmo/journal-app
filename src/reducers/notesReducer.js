@@ -1,16 +1,16 @@
-import { ADD_NOTE, DELETE_NOTE, SET_ACTIVE, SET_NOTES, UPDATE_NOTE } from "../actions/notesActions";
+import { ADD_NOTE, CLEAR_NOTES, DELETE_NOTE, SET_ACTIVE, SET_NOTES, UPDATE_NOTE } from "../actions/notesActions";
 
 const initialState = {
   notes: [],
   active: null,
 };
 
+const deleteNote = (notes, id) => notes.filter(n => n.id !== id);
+
 const updateNote = (notes, { id, note }) => notes.map(n => n.id === id
   ? { ...note, id }
   : n
 );
-
-const deleteNote = (notes, id) => notes.filter(n => n.id !== id);
 
 const notesReducer = (state = initialState, { type, payload }) => {
   switch (type) {
@@ -19,6 +19,9 @@ const notesReducer = (state = initialState, { type, payload }) => {
         notes: [...state.notes, payload],
         active: payload,
       };
+
+    case CLEAR_NOTES:
+      return JSON.parse(JSON.stringify(initialState));
 
     case DELETE_NOTE:
       return {
