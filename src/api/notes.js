@@ -20,7 +20,9 @@ export const getAllNotes = (userId) => getDocs(collection(db, `${userId}/journal
     return notes;
 });
 
-export const saveOneNote = (userId, noteId, note) => {
+export const updateNote = (userId, noteId, data) => {
   const docRef = doc(db, `${userId}/journal/notes/${noteId}`);
-  return updateDoc(docRef, note);
+
+  return updateDoc(docRef, data)
+    .then(() => data);
 };
