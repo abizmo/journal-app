@@ -1,6 +1,7 @@
 import {
   addDoc,
   collection,
+  deleteDoc,
   doc,
   getDocs,
   updateDoc,
@@ -26,3 +27,7 @@ export const updateNote = (userId, noteId, data) => {
   return updateDoc(docRef, data)
     .then(() => data);
 };
+
+export const deleteOneNote = (userId, noteId) => {
+  return deleteDoc(doc(db, `${userId}/journal/notes/${noteId}`));
+}

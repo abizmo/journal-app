@@ -16,6 +16,14 @@
   }
 }
 
+.btn-danger {
+  background-color: #cf1020;
+
+  &:hover {
+    box-shadow: 0 -2px 6px #cf1020;
+  }
+}
+
 .btn-primary {
   background-color: $primary;
 
