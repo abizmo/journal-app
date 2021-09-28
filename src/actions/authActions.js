@@ -1,10 +1,10 @@
 import Swal from "sweetalert2";
 import {
-  loginWithGoogleProvider,
-  signInWithEmail,
-  signOutInFirebase,
-  signUpWithEmailAndPassword
-} from "../firebase";
+  signIn,
+  signInWithGoogle,
+  signUpWithEmailAndPassword,
+  signOut as signOutApi
+} from "../api/auth";
 import { clearNotes } from "./notesActions";
 import { startAction, stopAction } from "./uiActions";
 
@@ -22,7 +22,7 @@ export const logout = () => ({
 
 export const loginWithEmail = ({ email, password }) => (dispatch) => {
   dispatch(startAction());
-  signInWithEmail({ email, password })
+  signIn({ email, password })
     .then((user) => {
       dispatch(stopAction());
       dispatch(login(user));
@@ -34,7 +34,7 @@ export const loginWithEmail = ({ email, password }) => (dispatch) => {
 };
 
 export const loginWithGoogle = () => (dispatch) => {
-  loginWithGoogleProvider()
+  signInWithGoogle()
     .then((user) => dispatch(login(user)))
     .catch(({ message }) => Swal.fire('Error', message, 'error'));
 };
@@ -46,7 +46,7 @@ export const signUp = (newUser) => (dispatch) => {
 };
 
 export const signOut = () => (dispatch) => {
-  signOutInFirebase()
+  signOutApi()
     .then(() => {
       dispatch(logout());
       dispatch(clearNotes());

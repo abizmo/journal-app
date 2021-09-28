@@ -8,11 +8,11 @@ import {
 
 import AuthRouter from './AuthRouter';
 import JournalPage from '../pages/JournalPage';
-import { getCurrentUser } from '../firebase';
 import { login } from '../actions/authActions';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import { getNotes } from '../actions/notesActions';
+import { onCurrentUserChanged } from '../api/auth';
 
 const JournalRouter = () => {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const JournalRouter = () => {
   const [logged, setLogged] = useState(false);
 
   useEffect(() => {
-    getCurrentUser((user) => {
+    onCurrentUserChanged((user) => {
       if (user) {
         const { displayName: name, uid: userId } = user;
         dispatch(login({ name, userId }));
