@@ -1,6 +1,6 @@
 import Swal from "sweetalert2";
 import { uploadOneImage } from "../api/images";
-import { createNote, getAllNotes, saveOneNote } from "../api/notes";
+import { createNote, getAllNotes, updateNote } from "../api/notes";
 
 export const SET_ACTIVE = 'SET_ACTIVE';
 export const SET_NOTES = 'SET_NOTES';
@@ -52,14 +52,14 @@ export const saveNote = () => (dispatch, getState) => {
   delete note.id;
   !note.url && delete note.url;
 
-  saveOneNote(userId, id, note)
+  updateNote(userId, id, note)
     .then(() => {
       dispatch(refreshNote(id, note));
       Swal.fire({
         icon: 'success',
         title: 'Your note has been saved',
         showConfirmButton: false,
-        timer: 1500
+        timer: 1500,
       })
     })
     .catch(({ message }) => Swal.fire('Error', message, 'error'));
@@ -74,10 +74,21 @@ const refreshNote = (id, note) => ({
 });
 
 export const uploadImage = (file) => (dispatch, getState) => {
-  
+  const { userId } = getState().auth;
+  const { active: note } = getState().notes;
+  const { id } = note;
+  delete note.id;
+
   uploadOneImage(file)
-    .then((url) => {
-        console.log('Success', url);
+    .then((url) => updateNote(userId, id, { url }))
+    .then(({ url }) => {
+      dispatch(refreshNote(id, { ...note, url }));
+      Swal.fire({
+        icon: 'success',
+        title: 'Your image has been saved',
+        showConfirmButton: false,
+        timer: 1500,
+      })
     })
     .catch(({ message }) => Swal.fire('Error', message, 'error'));
 }
