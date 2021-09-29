@@ -9,7 +9,6 @@ import useForm from '../hooks/useForm';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
-  // FIXME - loading never used
   const { error, loading } = useSelector(({ ui }) => ui)
   const [ state, handleInputChange ] = useForm({
     email: '',
@@ -93,6 +92,7 @@ const RegisterPage = () => {
         />
         <button
           className="btn btn-block btn-primary mb-2"
+          disabled={loading}
           type="submit"
         >Register</button>
         <Link
