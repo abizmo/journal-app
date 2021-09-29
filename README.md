@@ -34,5 +34,15 @@ En esta sección configuraremos Redux en nuestro proyecto por primera vez, aplic
 
 Esta sección está enfocada ahora en las entradas de nuestro diario, asegurándose de que grabe únicamente en el documento del usuario autenticado.
 
+## Section 22: Pruebas con Redux, Firebase, Firestore y autenticación
+### ¿Qué veremos en esta sección?
+- Profundizando en pruebas
+- Pruebas en Firebase y Firestore
+- Pruebas con reducers
+- Variables de entorno de desarrollo, test y producción
+- Pruebas en tareas asíncronas
+
+Esta sección continúa el tema de las pruebas unitarias y de integración con el objetivo de seguir cubriendo temas nuevos. Las pruebas conforme se van avanzando, efectivamente se van haciendo más complejas pero la idea es darles a ustedes las herramientas para que puedan probar cualquier cosa que ustedes necesiten.
+
 ---
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
