@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import validator from 'validator';
 
 import { signUp } from '../actions/auth';
-import { clearError, setError } from '../actions/uiActions';
+import { clearError, setError } from '../actions/ui';
 import useForm from '../hooks/useForm';
 
 const RegisterPage = () => {
