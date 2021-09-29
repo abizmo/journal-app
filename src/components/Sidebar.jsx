@@ -1,9 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { signOut } from '../actions/authActions';
-import { newNote } from '../actions/notes';
 import JournalEntries from './JournalEntries';
+
+import { signOut } from '../actions/auth';
+import { newNote } from '../actions/notes';
 
 const Sidebar = () => {
   const dispatch = useDispatch();
