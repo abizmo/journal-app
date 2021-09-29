@@ -1,4 +1,4 @@
-import { CLEAR_ERROR, SET_ERROR, START_ACTION, STOP_ACTION } from "../actions/uiActions";
+import { CLEAR_ERROR, SET_ERROR, START_ACTION, STOP_ACTION } from "../actions/ui";
 
 const initialState = {
   loading: false,

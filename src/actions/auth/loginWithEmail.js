@@ -1,6 +1,6 @@
 import { login } from ".";
 
-import { startAction, stopAction } from "../uiActions";
+import { startAction, stopAction } from "../ui";
 import { signIn } from "../../api/auth";
 import { error } from "../../helpers/alert";
 
