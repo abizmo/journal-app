@@ -24,5 +24,15 @@ Esta sección está totalmente enfocada en aprender a utilizar SASS para crear n
 
 En esta sección configuraremos Redux en nuestro proyecto por primera vez, aplicado al inicio en la parte de la autenticación y mantener el estado de la misma a lo largo de toda la aplicación.
 
+## Section 21: JournalApp - Redux - CRUD en Firestore y subida de archivos
+### ¿Qué veremos en esta sección?
+- CRUD hacia Firestore
+- Expandiendo nuestro estore añadiendo otros reducers
+- Seleccionar y subir archivos
+- Animaciones adicionales a nuestra aplicación
+- Limpieza en el logout
+
+Esta sección está enfocada ahora en las entradas de nuestro diario, asegurándose de que grabe únicamente en el documento del usuario autenticado.
+
 ---
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

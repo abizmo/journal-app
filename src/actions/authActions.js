@@ -1,10 +1,11 @@
-import Swal from "sweetalert2";
 import {
-  loginWithGoogleProvider,
-  signInWithEmail,
-  signOutInFirebase,
-  signUpWithEmailAndPassword
-} from "../firebase";
+  signIn,
+  signInWithGoogle,
+  signUpWithEmailAndPassword,
+  signOut as signOutApi
+} from "../api/auth";
+import { error } from "../helpers/alert";
+import { clearNotes } from "./notes";
 import { startAction, stopAction } from "./uiActions";
 
 export const LOGIN = 'LOGIN';
@@ -21,31 +22,34 @@ export const logout = () => ({
 
 export const loginWithEmail = ({ email, password }) => (dispatch) => {
   dispatch(startAction());
-  signInWithEmail({ email, password })
+  signIn({ email, password })
     .then((user) => {
       dispatch(stopAction());
       dispatch(login(user));
     })
     .catch(({ message }) => {
       dispatch(stopAction());
-      Swal.fire('Error', message, 'error');
+      error(message);
     });
 };
 
 export const loginWithGoogle = () => (dispatch) => {
-  loginWithGoogleProvider()
+  signInWithGoogle()
     .then((user) => dispatch(login(user)))
-    .catch(({ message }) => Swal.fire('Error', message, 'error'));
+    .catch(({ message }) => error(message));
 };
 
 export const signUp = (newUser) => (dispatch) => {
   signUpWithEmailAndPassword(newUser)
     .then((user) => dispatch(login(user)))
-    .catch(({ message }) => Swal.fire('Error', message, 'error'));
+    .catch(({ message }) => error(message));
 };
 
 export const signOut = () => (dispatch) => {
-  signOutInFirebase()
-    .then(() => dispatch(logout()))
-    .catch(({ message }) => Swal.fire('Error', message, 'error'));
+  signOutApi()
+    .then(() => {
+      dispatch(logout());
+      dispatch(clearNotes());
+    })
+    .catch(({ message }) => error(message));
 };
