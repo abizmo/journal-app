@@ -16,5 +16,5 @@ export const uploadOneImage = (file) => {
       throw new Error(error.message);
     }
     return secure_url;
-  })
-}
+  });
+};

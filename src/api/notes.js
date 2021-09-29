@@ -6,6 +6,7 @@ import {
   getDocs,
   updateDoc,
 } from "firebase/firestore";
+
 import { db } from "../firebase";
 
 export const createNote = (userId, note) => addDoc(collection(db, `${userId}/journal/notes/`), note)
@@ -30,4 +31,4 @@ export const updateNote = (userId, noteId, data) => {
 
 export const deleteOneNote = (userId, noteId) => {
   return deleteDoc(doc(db, `${userId}/journal/notes/${noteId}`));
-}
+};
