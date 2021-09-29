@@ -7,3 +7,8 @@ export { default as signUp } from './signUp';
 
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
+
+export const types = {
+  LOGIN,
+  LOGOUT,
+};
