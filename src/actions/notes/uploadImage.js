@@ -5,7 +5,7 @@ import { error, success } from "../../helpers/alert";
 
 const uploadImage = (file) => (dispatch, getState) => {
   const { userId } = getState().auth;
-  const { active: note } = getState().notes;
+  const note = { ...getState().notes };
   const { id } = note;
   delete note.id;
 
