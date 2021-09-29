@@ -7,12 +7,13 @@ import {
 } from 'react-router-dom';
 
 import AuthRouter from './AuthRouter';
-import JournalPage from '../pages/JournalPage';
-import { login } from '../actions/authActions';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
-import { onCurrentUserChanged } from '../api/auth';
+
+import { login } from '../actions/auth';
 import { getNotes } from '../actions/notes';
+import { onCurrentUserChanged } from '../api/auth';
+import JournalPage from '../pages/JournalPage';
 
 const JournalRouter = () => {
   const dispatch = useDispatch();
