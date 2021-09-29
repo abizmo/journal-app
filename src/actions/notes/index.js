@@ -1,4 +1,3 @@
-//TODO - faltan algunas alertas, de exito y de loading
 export const ADD_NOTE = 'ADD_NOTE';
 export const CLEAR_NOTES = 'CLEAR_NOTES'
 export const DELETE_NOTE = 'DELETE_NOTE';
