@@ -6,12 +6,12 @@ import {
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "***REMOVED***",
-  authDomain: "***REMOVED***",
-  projectId: "***REMOVED***",
-  storageBucket: "***REMOVED***.appspot.com",
-  messagingSenderId: "***REMOVED***",
-  appId: "1:***REMOVED***:web:787bcc30a701bcb2c326ed",
+  apiKey: "AIzaSyAcsc_8N78COmEpYx762GWNscHeeq1Cq-w",
+  authDomain: "react-0-expert.firebaseapp.com",
+  projectId: "react-0-expert",
+  storageBucket: "react-0-expert.appspot.com",
+  messagingSenderId: "461439574680",
+  appId: "1:461439574680:web:787bcc30a701bcb2c326ed",
 };
 
 // Initialize Firebase
