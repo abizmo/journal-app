@@ -7,7 +7,7 @@ const addNote = (note) => ({
   payload: note,
 });
 
-const newNote = () => (dispatch, getState) => {
+const newNote = () => async (dispatch, getState) => {
   const { userId } = getState().auth;
 
   const note = {
@@ -16,11 +16,13 @@ const newNote = () => (dispatch, getState) => {
     date: new Date().getTime(),
   };
 
-  createNote(userId, note)
-    .then((id) => {
-      dispatch(addNote({ ...note, id }))
-    })
-    .catch(({ message }) => error(message));
+  try {
+    const id = await createNote(userId, note)
+    dispatch(addNote({ ...note, id }))
+  }
+  catch ({message}){
+    error(message);
+  }
 };
 
 export default newNote;
