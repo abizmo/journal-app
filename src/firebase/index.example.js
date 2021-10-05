@@ -5,7 +5,7 @@ import {
 } from "firebase/auth";
 import { getFirestore } from 'firebase/firestore';
 
-const firebaseConfig = {
+const testConfig = {
   apiKey: "apiKey",
   authDomain: "authDomain",
   projectId: "projectId",
@@ -14,6 +14,16 @@ const firebaseConfig = {
   appId: "appId",
 };
 
+const prodConfig = {
+  apiKey: "apiKey",
+  authDomain: "authDomain",
+  projectId: "projectId",
+  storageBucket: "storageBucket",
+  messagingSenderId: "000000000000",
+  appId: "appId",
+};
+
+const firebaseConfig = process.env.NODE_ENV === "test" ? testConfig : prodConfig;
 // Initialize Firebase
 initializeApp(firebaseConfig);
 
