@@ -2,20 +2,21 @@ import { DELETE_NOTE } from ".";
 import { deleteOneNote } from "../../api/notes";
 import { error } from "../../helpers/alert";
 
-const deleteNote = (id) => ({
+export const deleteNote = (id) => ({
   type: DELETE_NOTE,
   payload: id,
 });
 
-const removeNote = () => (dispatch, getState) => {
+const removeNote = () => async (dispatch, getState) => {
   const { userId } = getState().auth;
   const { id } = getState().notes.active;
 
-  deleteOneNote(userId, id)
-    .then(() => {
-      dispatch(deleteNote(id));
-    })
-    .catch(({ message }) => error(message));
+  try {
+    await deleteOneNote(userId, id);
+    dispatch(deleteNote(id));
+  } catch ({ message }) {
+    error(message);
+  }
 };
 
 export default removeNote;
