@@ -3,10 +3,13 @@ import { login } from ".";
 import { signInWithGoogle } from "../../api/auth";
 import { error } from "../../helpers/alert";
 
-const loginWithGoogle = () => (dispatch) => {
-  signInWithGoogle()
-    .then((user) => dispatch(login(user)))
-    .catch(({ message }) => error(message));
+const loginWithGoogle = () => async (dispatch) => {
+  try {
+    const user = await signInWithGoogle();
+    dispatch(login(user));
+  } catch ({ message }) {
+    error(message);
+  }
 };
 
 export default loginWithGoogle;
