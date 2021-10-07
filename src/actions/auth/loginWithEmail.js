@@ -4,17 +4,15 @@ import { startAction, stopAction } from "../ui";
 import { signIn } from "../../api/auth";
 import { error } from "../../helpers/alert";
 
-const loginWithEmail = ({ email, password }) => (dispatch) => {
-  dispatch(startAction());
-  signIn({ email, password })
-    .then((user) => {
-      dispatch(stopAction());
-      dispatch(login(user));
-    })
-    .catch(({ message }) => {
-      dispatch(stopAction());
-      error(message);
-    });
+const loginWithEmail = ({ email, password }) => async (dispatch) => {
+  try {
+    dispatch(startAction());
+    const user = await signIn({ email, password });
+    dispatch(login(user));
+  } catch ({ message }) {
+    error(message);
+  }
+  dispatch(stopAction());
 };
 
 export default loginWithEmail;
