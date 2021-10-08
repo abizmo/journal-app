@@ -11,11 +11,14 @@ import { auth, provider } from "../firebase";
 
 export const onCurrentUserChanged = (cb) => onAuthStateChanged(auth, cb);
   
-export const signIn = ({ email, password }) => signInWithEmailAndPassword(auth, email, password)
-  .then(({ user }) => ({
+export const signIn = async ({ email, password }) => {
+  const { user } = await signInWithEmailAndPassword(auth, email, password)
+
+  return {
     name: user.displayName,
     userId: user.uid
-}));
+  };
+};
 
 export const signInWithGoogle = () => signInWithPopup(auth, provider)
   .then(({ user }) => ({
