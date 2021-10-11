@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import validator from 'validator';
 
-import { loginWithEmail, loginWithGoogle } from '../actions/authActions';
-import { clearError, setError } from '../actions/uiActions';
+import { loginWithEmail, loginWithGoogle } from '../actions/auth';
+import { clearError, setError } from '../actions/ui';
 import useForm from '../hooks/useForm';
 
 const LoginPage = () => {

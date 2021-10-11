@@ -13,3 +13,12 @@ export const DELETE_NOTE = 'DELETE_NOTE';
 export const SET_ACTIVE = 'SET_ACTIVE';
 export const SET_NOTES = 'SET_NOTES';
 export const UPDATE_NOTE = 'UPDATE_NOTE';
+
+export const types = {
+  ADD_NOTE,
+  CLEAR_NOTES,
+  DELETE_NOTE,
+  SET_ACTIVE,
+  SET_NOTES,
+  UPDATE_NOTE,
+};

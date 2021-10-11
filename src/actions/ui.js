@@ -3,6 +3,13 @@ export const SET_ERROR = 'SET_ERROR';
 export const START_ACTION = 'START_ACTION';
 export const STOP_ACTION = 'STOP_ACTION';
 
+export const types = {
+  CLEAR_ERROR,
+  SET_ERROR,
+  START_ACTION,
+  STOP_ACTION,
+};
+
 export const clearError = () => ({
   type: CLEAR_ERROR,
 });

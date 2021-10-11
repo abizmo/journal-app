@@ -9,26 +9,27 @@ import {
 
 import { db } from "../firebase";
 
-export const createNote = (userId, note) => addDoc(collection(db, `${userId}/journal/notes/`), note)
-  .then(({ id }) => id);
+export const createNote = async (userId, note) => {
+  const { id } = await addDoc(collection(db, `${userId}/journal/notes/`), note);
 
-export const getAllNotes = (userId) => getDocs(collection(db, `${userId}/journal/notes/`))
-  .then((res) => {
-    const notes = [];
-    res.forEach((doc) => {
-      notes.push({ ...doc.data(), id: doc.id });
-    });
+  return id;
+}
+
+export const getAllNotes = async (userId) => {
+  const notes = [];
+  const res = await getDocs(collection(db, `${userId}/journal/notes`));
+  res.forEach((doc) => {
+    notes.push({ ...doc.data(), id: doc.id });
+  });
     
-    return notes;
-});
+  return notes;
+};
 
-export const updateNote = (userId, noteId, data) => {
+export const updateNote = async (userId, noteId, data) => {
   const docRef = doc(db, `${userId}/journal/notes/${noteId}`);
+  await updateDoc(docRef, data)
 
-  return updateDoc(docRef, data)
-    .then(() => data);
+  return data;
 };
 
-export const deleteOneNote = (userId, noteId) => {
-  return deleteDoc(doc(db, `${userId}/journal/notes/${noteId}`));
-};
+export const deleteOneNote = (userId, noteId) => deleteDoc(doc(db, `${userId}/journal/notes/${noteId}`));
