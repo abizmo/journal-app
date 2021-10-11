@@ -55,6 +55,7 @@ const RegisterPage = () => {
         <input
           autoComplete="none"
           className="auth__input mb-2"
+          id="name"
           name="name"
           onChange={ handleInputChange }
           placeholder="Your Name"
@@ -65,6 +66,7 @@ const RegisterPage = () => {
         <input
           autoComplete="off"
           className="auth__input mb-2"
+          id="email"
           name="email"
           onChange={ handleInputChange }
           placeholder="tu@email.com"
@@ -74,6 +76,7 @@ const RegisterPage = () => {
         />
         <input
           className="auth__input mb-2"
+          id="password"
           name="password"
           onChange={ handleInputChange }
           placeholder="TuContraseñ@"
@@ -83,6 +86,7 @@ const RegisterPage = () => {
         />
         <input
           className="auth__input mb-2"
+          id="confirmPassword"
           name="confirmPassword"
           onChange={ handleInputChange }
           placeholder="TuContraseñ@"

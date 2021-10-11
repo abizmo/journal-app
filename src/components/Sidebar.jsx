@@ -32,6 +32,7 @@ const Sidebar = () => {
       </div>
       <div
         className="journal__sidebar-new"
+        id="new"
         onClick={ handleNewNote }
       >
         <i className="far fa-plus-square fa-5x"></i>

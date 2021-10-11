@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RegisterPage /> should render and match snapshot 1`] = `
+Array [
+  <h3
+    className="auth__title mb-4"
+  >
+    Register
+  </h3>,
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      autoComplete="none"
+      className="auth__input mb-2"
+      id="name"
+      name="name"
+      onChange={[Function]}
+      placeholder="Your Name"
+      required={true}
+      type="text"
+      value=""
+    />
+    <input
+      autoComplete="off"
+      className="auth__input mb-2"
+      id="email"
+      name="email"
+      onChange={[Function]}
+      placeholder="tu@email.com"
+      required={true}
+      type="email"
+      value=""
+    />
+    <input
+      className="auth__input mb-2"
+      id="password"
+      name="password"
+      onChange={[Function]}
+      placeholder="TuContraseñ@"
+      required={true}
+      type="password"
+      value=""
+    />
+    <input
+      className="auth__input mb-2"
+      id="confirmPassword"
+      name="confirmPassword"
+      onChange={[Function]}
+      placeholder="TuContraseñ@"
+      required={true}
+      type="password"
+      value=""
+    />
+    <button
+      className="btn btn-block btn-primary mb-2"
+      type="submit"
+    >
+      Register
+    </button>
+    <a
+      className="link d-block"
+      href="/auth/login"
+      onClick={[Function]}
+    >
+      Already register?
+    </a>
+  </form>,
+]
+`;
