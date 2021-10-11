@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoginPage /> should render right 1`] = `
+Array [
+  <h3
+    className="auth__title mb-4"
+  >
+    Login
+  </h3>,
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      autoComplete="off"
+      className="auth__input mb-2"
+      name="email"
+      onChange={[Function]}
+      placeholder="tu@email.com"
+      required={true}
+      type="email"
+      value="goccita@abizmo.dev"
+    />
+    <input
+      className="auth__input mb-2"
+      name="password"
+      onChange={[Function]}
+      placeholder="TuContraseñ@"
+      required={true}
+      type="password"
+      value="123456"
+    />
+    <button
+      className="btn btn-block btn-primary mb-2"
+      disabled={false}
+      type="submit"
+    >
+      Login
+    </button>
+    <div
+      className="auth__social-networks"
+    >
+      <p
+        className="auth__label"
+      >
+        Login with social networks
+      </p>
+      <div
+        className="google-btn mt-2"
+        onClick={[Function]}
+      >
+        <div
+          className="google-icon-wrapper"
+        >
+          <img
+            alt="google button"
+            className="google-icon"
+            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+          />
+        </div>
+        <p
+          className="btn-text"
+        >
+          <b>
+            Sign in with google
+          </b>
+        </p>
+      </div>
+    </div>
+    <a
+      className="link d-block"
+      href="/auth/register"
+      onClick={[Function]}
+    >
+      Create new account
+    </a>
+  </form>,
+]
+`;

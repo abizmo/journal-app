@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Sidebar /> should render and match snapshot 1`] = `
+<aside
+  className="journal__sidebar-container"
+>
+  <div
+    className="journal__sidebar-nav"
+  >
+    <b>
+      <i
+        className="far fa-heart"
+      />
+      <span>
+         
+        goccita
+      </span>
+    </b>
+    <button
+      className="btn btn-outline-white"
+      onClick={[Function]}
+    >
+      Logout
+    </button>
+  </div>
+  <div
+    className="journal__sidebar-new"
+    id="new"
+    onClick={[Function]}
+  >
+    <i
+      className="far fa-plus-square fa-5x"
+    />
+    <p
+      className="mt-2"
+    >
+      New entry
+    </p>
+  </div>
+  <div
+    className="journal__entries-container"
+  />
+</aside>
+`;

@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NotesPage /> should render and match snapshot 1`] = `
+<div
+  className="notes__container"
+>
+  <div
+    className="notes__bar-container"
+  >
+    <p>
+      19th March 2021
+    </p>
+    <input
+      id="fileInput"
+      name="fileInput"
+      onChange={[Function]}
+      style={
+        Object {
+          "display": "none",
+        }
+      }
+      type="file"
+    />
+    <div>
+      <button
+        className="btn btn-outline-white mr-1"
+        onClick={[Function]}
+      >
+        Add Picture
+      </button>
+      <button
+        className="btn btn-white"
+        onClick={[Function]}
+      >
+        Save
+      </button>
+    </div>
+  </div>
+  <div
+    className="notes__new-note"
+  >
+    <input
+      autoComplete="off"
+      className="notes__input"
+      name="title"
+      onChange={[Function]}
+      placeholder="An awesome note"
+      type="text"
+      value="Titulo 1"
+    />
+    <textarea
+      className="notes__textarea"
+      name="body"
+      onChange={[Function]}
+      placeholder="Once upon a time..."
+      value="Body 1"
+    />
+    <img
+      alt="new note"
+      className="notes__image"
+      src="http://localhost/images/1.jpeg"
+    />
+  </div>
+  <button
+    className="btn btn-danger"
+    onClick={[Function]}
+  >
+    Delete
+  </button>
+</div>
+`;
